@@ -16,6 +16,28 @@
   </head>
 
   <body>
+
+
+    <% if session.fetch(:user_id) == nil %>
+
+      <div class="homepage-link">
+        <a href="/user_sign_in">Sign in</a>
+        <a href="/user_sign_up">Sign up</a>
+        <a href="/">Home</a>
+      </div>
+    <% else %>
+      <div class="homepage-link">
+        <a href="/user_sign_out">Sign out</a>
+        <a href="/bookmarks">My posts</a>
+        <a href="/">Home</a>
+      </div>
+      <% end %>
+
+      <div class="title">
+        <h1>Your Neighborhood Bulletin Board</h1>
+      </div>
+
+
     <%= yield %>
   </body>
 </html>
