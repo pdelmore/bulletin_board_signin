@@ -4,11 +4,11 @@
       List of all posts
     </h1>
   </div>
-</div>
 
-<hr>
 
-<div>
+<%if @current_user != nil %>
+
+<div class="new-post">
   <div>
     <h2>
       Add a new post
@@ -19,24 +19,16 @@
         <label for="title_box">
           Title
         </label>
-
-        <input type="text" id="title_box" name="query_title">
+<br>
+        <textarea type="text" id="title_box" name="query_title" rows="2" cols="60"></textarea>
       </div>
 
       <div>
         <label for="body_box">
           Body
         </label>
-
-        <input type="text" id="body_box" name="query_body">
-      </div>
-
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
+<br>
+        <textarea type="text" id="body_box" name="query_body" rows="10" cols="60"></textarea>
       </div>
 
       <button>
@@ -46,21 +38,15 @@
   </div>
 </div>
 
-<hr>
-<div>
+<% end %>
+
+<div class="list-of-posts">
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Title
-        </th>
-
-        <th>
-          Body
         </th>
 
         <th>
@@ -68,11 +54,7 @@
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Created
         </th>
 
         <th>
@@ -82,26 +64,15 @@
       <% @list_of_posts.each do |a_post| %>
       <tr>
         <td>
-          <%= a_post.id %>
-        </td>
-
-        <td>
           <%= a_post.title %>
         </td>
 
         <td>
-          <%= a_post.body %>
-        </td>
-
-        <td>
-          <%= a_post.user_id %>
+          <%= a_post.user.first_name %>
         </td>
 
         <td>
           <%= time_ago_in_words(a_post.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_post.updated_at) %> ago
         </td>
 
         <td>
@@ -115,4 +86,4 @@
   </div>
 </div>
 
-<hr>
+</div>

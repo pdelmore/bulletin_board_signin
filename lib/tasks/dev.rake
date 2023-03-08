@@ -11,7 +11,23 @@ task({ :sample_data => :environment }) do
     user.save
   end
 
+  users = User.all
 
+  15.times do |count|
+    post = Post.new
+    post.body = Faker::Lorem.paragraph(sentence_count: 3)
+    post.title = Faker::Lorem.paragraph
+    post.user_id = users.sample.id
+    post.save
+  end
 
-  
+  posts = Post.all
+
+  20.times do |count|
+    comment = Comment.new
+    comment.body = Faker::Lorem.paragraph(sentence_count: 1)
+    comment.user_id = users.sample.id
+    comment.post_id = posts.sample.id
+    comment.save
+  end
 end
