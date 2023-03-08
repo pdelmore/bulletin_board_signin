@@ -1,9 +1,5 @@
-<div>
-  <div>
-    <h1>
-      Post #<%= @the_post.id %> details
-    </h1>
-
+<div class="wrapper">
+  <div class="post-details-box">
     <div>
       <div>
         <a href="/posts">
@@ -11,11 +7,10 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_post/<%= @the_post.id %>">
-          Delete post
-        </a>
-      </div>
+<div>
+    <h1>
+      Post details
+    </h1>
     </div>
 
     <dl>
@@ -55,13 +50,18 @@
       </dd>
     </dl>
   </div>
-</div>
-
-<hr>
 
 
-<div>
-  <div>
+      <div>
+        <a href="/delete_post/<%= @the_post.id %>">
+          Delete post
+        </a>
+      </div>
+    </div>
+
+
+
+  <div class="edit-post-box">
     <h2>
       Edit post
     </h2>
@@ -72,7 +72,7 @@
           Title
         </label>
 
-        <input type="text" id="title_box" name="query_title" value="<%= @the_post.title %>">
+        <textarea rows="2" cols="60" type="text" id="title_box" name="query_title" value="<%= @the_post.title %>"></textarea>
       </div>
 
       <div>
@@ -80,22 +80,14 @@
           Body
         </label>
 
-        <input type="text" id="body_box" name="query_body" value="<%= @the_post.body %>">
+        <textarea row="10" cols="60" type="text" id="body_box" name="query_body" value="<%= @the_post.body %>"></textarea>
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_post.user_id %>">
-      </div>
-
-      <button>
+      <button class="button">
         Update post
       </button>
     </form>
   </div>
 </div>
 
-<hr>
+</div>
