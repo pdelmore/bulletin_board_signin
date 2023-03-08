@@ -55,4 +55,16 @@ class PostsController < ApplicationController
 
     redirect_to("/posts", { :notice => "Post deleted successfully."} )
   end
+
+def user_posts
+user_id = session[:user_id]
+
+  matching_posts = Post.where({ :user_id => user_id })
+
+  @the_post = matching_posts
+
+  render({ :template => "posts/user_posts.html.erb" })
+
+end
+
 end

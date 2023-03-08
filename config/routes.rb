@@ -57,6 +57,9 @@ get("/", { :controller => "posts", :action => "index" })
   get("/posts", { :controller => "posts", :action => "index" })
   
   get("/posts/:path_id", { :controller => "posts", :action => "show" })
+
+    # USER POSTS
+  get("/user_posts", { :controller => "posts", :action => "user_posts"})
   
   # UPDATE
   
