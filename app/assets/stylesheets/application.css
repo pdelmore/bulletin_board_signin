@@ -44,6 +44,7 @@
  .wrapper {
   display: flex;
   gap: 50px;
+  justify-content: center;
  }
 
  .post-details-box {
@@ -114,4 +115,20 @@ a {
 a:hover {
   background-color: #008CBA;
   color: white;
+}
+
+ td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+
+tr:hover {
+  background-color: #008bba34;
 }

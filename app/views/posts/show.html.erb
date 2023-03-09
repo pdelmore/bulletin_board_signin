@@ -7,87 +7,86 @@
         </a>
       </div>
 
-<div>
-    <h1>
-      Post details
-    </h1>
-    </div>
-
-    <dl>
-      <dt>
-        Title
-      </dt>
-      <dd>
-        <%= @the_post.title %>
-      </dd>
-
-      <dt>
-        Body
-      </dt>
-      <dd>
-        <%= @the_post.body %>
-      </dd>
-
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_post.user_id %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_post.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_post.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-
-
       <div>
-        <a href="/delete_post/<%= @the_post.id %>">
-          Delete post
-        </a>
+        <h1>
+          Post details
+        </h1>
       </div>
-    </div>
 
-
-
-  <div class="edit-post-box">
-    <h2>
-      Edit post
-    </h2>
-
-    <form action="/modify_post/<%= @the_post.id %>"  method="post" >
-      <div>
-        <label for="title_box">
+      <dl>
+        <dt>
           Title
-        </label>
+        </dt>
+        <dd>
+          <%= @the_post.title %>
+        </dd>
 
-        <textarea rows="2" cols="60" type="text" id="title_box" name="query_title" value="<%= @the_post.title %>"></textarea>
-      </div>
-
-      <div>
-        <label for="body_box">
+        <dt>
           Body
-        </label>
+        </dt>
+        <dd>
+          <%= @the_post.body %>
+        </dd>
 
-        <textarea row="10" cols="60" type="text" id="body_box" name="query_body" value="<%= @the_post.body %>"></textarea>
-      </div>
+        <dt>
+          User
+        </dt>
+        <dd>
+          <%= @the_post.user_id %>
+        </dd>
 
-      <button class="button">
-        Update post
-      </button>
-    </form>
+        <dt>
+          Created at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_post.created_at) %> ago
+        </dd>
+
+        <dt>
+          Updated at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_post.updated_at) %> ago
+        </dd>
+      </dl>
+    </div>
+
+    <div>
+      <a href="/delete_post/<%= @the_post.id %>">
+        Delete post
+      </a>
+    </div>
   </div>
-</div>
+
+  <% if @current_user != nil %>
+    <div class="edit-post-box">
+      <h2>
+        Edit post
+      </h2>
+
+      <form action="/modify_post/<%= @the_post.id %>"  method="post" >
+        <div>
+          <label for="title_box">
+            Title
+          </label>
+
+          <textarea rows="2" cols="60" type="text" id="title_box" name="query_title" value="<%= @the_post.title %>"></textarea>
+        </div>
+
+        <div>
+          <label for="body_box">
+            Body
+          </label>
+
+          <textarea row="10" cols="60" type="text" id="body_box" name="query_body" value="<%= @the_post.body %>"></textarea>
+        </div>
+
+        <button class="button">
+          Update post
+        </button>
+      </form>
+    </div>
+  <% end %>
 
 </div>
+
