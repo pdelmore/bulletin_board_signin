@@ -132,3 +132,9 @@ th {
 tr:hover {
   background-color: #008bba34;
 }
+
+textarea {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
